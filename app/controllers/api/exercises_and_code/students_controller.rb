@@ -4,6 +4,7 @@ module Api
   module ExercisesAndCode
     class StudentsController < Api::Controller
       before_action :set_allow_any_origin, only: :index
+      before_action :set_allow_get_method, only: :index
 
       def index
         students = []
@@ -34,6 +35,10 @@ module Api
 
       def set_allow_any_origin
         response.set_header('Access-Control-Allow-Origin', '*')
+      end
+
+      def set_allow_get_method
+        response.set_header('Access-Control-Allow-Methods', 'GET')
       end
     end
   end
