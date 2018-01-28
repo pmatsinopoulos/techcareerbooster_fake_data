@@ -4,10 +4,10 @@ module Api
   module ExercisesAndCode
     class StudentsController < Api::Controller
       def index
-        @students = []
+        students = []
 
         100.times do
-          @students <<
+          students <<
               {id: SecureRandom.hex,
                name: Faker::Name.name,
                email: Faker::Internet.email,
@@ -17,10 +17,15 @@ module Api
                          country: Faker::Address.country}
               }
         end
-        render json: {description: "This is random data generated to support TCB (#{root_url}) exercises",
-                      type_of_results: 'students',
-                      number_of_results: @students.size,
-                      results: @students}
+        result = {description: "This is random data generated to support TCB (#{root_url}) exercises",
+                  type_of_results: 'students',
+                  number_of_results: students.size,
+                  results: students}
+
+        respond_to do |format|
+          format.xml {render xml: result}
+          format.json {render json: result}
+        end
       end
     end
   end
