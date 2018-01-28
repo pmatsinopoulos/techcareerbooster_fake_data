@@ -3,6 +3,8 @@ require 'faker'
 module Api
   module ExercisesAndCode
     class StudentsController < Api::Controller
+      before_action :set_allow_any_origin, only: :index
+
       def index
         students = []
 
@@ -26,6 +28,12 @@ module Api
           format.xml {render xml: result}
           format.json {render json: result}
         end
+      end
+
+      private
+
+      def set_allow_any_origin
+        response.set_header('Access-Control-Allow-Origin', '*')
       end
     end
   end

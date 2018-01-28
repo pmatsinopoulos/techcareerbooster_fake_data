@@ -6,6 +6,8 @@ RSpec.describe 'GET api/exercises_and_code/students' do
       get '/api/exercises_and_code/students'
 
       expect(response.status).to eq(200)
+      expect(response.headers['Access-Control-Allow-Origin']).to eq('*')
+
       response_decoded = ActiveSupport::JSON.decode(response.body)
       expect(response_decoded['description']).to eq("This is random data generated to support TCB (https://www.techcareerbooster.com) exercises")
       expect(response_decoded['type_of_results']).to eq('students')
@@ -30,6 +32,8 @@ RSpec.describe 'GET api/exercises_and_code/students' do
       get '/api/exercises_and_code/students.xml'
 
       expect(response.status).to eq(200)
+      expect(response.headers['Access-Control-Allow-Origin']).to eq('*')
+
       response_decoded = Nokogiri::XML(response.body)
       expect(response_decoded.css('description').text).to eq("This is random data generated to support TCB (https://www.techcareerbooster.com) exercises")
       expect(response_decoded.css('type-of-results').text).to eq('students')
