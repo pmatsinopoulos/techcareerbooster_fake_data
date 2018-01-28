@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :students, only: :index, defaults: {format: :json}
     end
   end
+
+  root 'welcome#index'
 end
