@@ -7,7 +7,7 @@ RSpec.describe 'GET api/exercises_and_code/students' do
 
       expect(response.status).to eq(200)
       response_decoded = ActiveSupport::JSON.decode(response.body)
-      expect(response_decoded['description']).to eq("This is random data generated to support TCB (#{root_url}) exercises")
+      expect(response_decoded['description']).to eq("This is random data generated to support TCB (https://www.techcareerbooster.com) exercises")
       expect(response_decoded['type_of_results']).to eq('students')
       expect(response_decoded['number_of_results']).to eq(100)
       expect(response_decoded['results']).to be_a(Array)
@@ -31,7 +31,7 @@ RSpec.describe 'GET api/exercises_and_code/students' do
 
       expect(response.status).to eq(200)
       response_decoded = Nokogiri::XML(response.body)
-      expect(response_decoded.css('description').text).to eq("This is random data generated to support TCB (#{root_url}) exercises")
+      expect(response_decoded.css('description').text).to eq("This is random data generated to support TCB (https://www.techcareerbooster.com) exercises")
       expect(response_decoded.css('type-of-results').text).to eq('students')
       expect(response_decoded.css('number-of-results').text).to eq('100')
       expect(response_decoded.css('results').size).to eq(1)

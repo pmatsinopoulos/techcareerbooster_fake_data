@@ -17,7 +17,7 @@ module Api
                          country: Faker::Address.country}
               }
         end
-        result = {description: "This is random data generated to support TCB (#{root_url}) exercises",
+        result = {description: "This is random data generated to support TCB (https://www.techcareerbooster.com) exercises",
                   type_of_results: 'students',
                   number_of_results: students.size,
                   results: students}
