@@ -7,6 +7,7 @@ RSpec.describe 'welcome' do
 
       assert_select 'a[href="/api/exercises_and_code/students"]', text: 'Students List - JSON'
       assert_select 'a[href="/api/exercises_and_code/students.xml"]', text: 'XML'
+      assert_select 'a[href="https://www.techcareerbooster.com"]', text: 'Courtesy of Tech Career Booster'
     end
   end
 end
