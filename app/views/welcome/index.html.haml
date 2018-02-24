@@ -5,6 +5,8 @@
     Students
     %ol
       %li
-        = link_to 'Students List - JSON', api_exercises_and_code_students_path
+        = link_to 'Students List', exercises_and_code_students_path
+        &nbsp;
+        = link_to 'JSON', api_exercises_and_code_students_path(format: :json)
         &nbsp;
         = link_to 'XML', api_exercises_and_code_students_path(format: :xml)

@@ -1,0 +1,16 @@
+- if @students.count
+  %table
+    %tr
+      %th ID
+      %th Name
+      %th Email
+      %th{colspan: 3} Address
+  - @students.each do |student|
+    %tr
+      %td= student[:id]
+      %td= student[:name]
+      %td= student[:email]
+      %td= student[:address][:street_number]
+      %td= student[:address][:city]
+      %td= student[:address][:zip_code]
+      %td= student[:address][:country]

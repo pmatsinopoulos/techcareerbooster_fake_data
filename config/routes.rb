@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       resources :students, only: :index, defaults: {format: :json}
     end
   end
+  namespace :exercises_and_code do
+    resources :students, only: :index
+  end
 
   root 'welcome#index'
 end
