@@ -1,5 +1,5 @@
 !!!
-%html
+%html{lang: :en}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title TechcareerboosterFakeData
@@ -7,7 +7,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .container
+      = yield
 
-    %footer
-      = link_to 'Courtesy of Tech Career Booster', 'https://www.techcareerbooster.com'
+      %footer
+        = link_to 'Courtesy of Tech Career Booster', 'https://www.techcareerbooster.com'
