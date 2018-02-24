@@ -1,13 +1,15 @@
 %h1 Students
+- if @students_with_pagination.count
 
-- if @students.count
+  = paginate @students_with_pagination
+
   %table.table.table-striped.table-bordered.table-hover.table-condensed
     %tr
       %th ID
       %th Name
       %th Email
       %th{colspan: 4} Address
-    - @students.each do |student|
+    - @students_with_pagination.each do |student|
       %tr
         %td= student[:id]
         %td= student[:name]
