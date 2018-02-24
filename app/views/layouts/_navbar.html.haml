@@ -1,0 +1,12 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{type: 'button', data: {toggle: 'collapse', target: '#navbar', aria: {expanded: 'false', controls: 'navbar'}}}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'Fake Data', root_path, class: 'navbar-brand'
+
+    #navbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav
