@@ -4,17 +4,19 @@
   = paginate @students_with_pagination
 
   %table.table.table-striped.table-bordered.table-hover.table-condensed
-    %tr
-      %th ID
-      %th Name
-      %th Email
-      %th{colspan: 4} Address
-    - @students_with_pagination.each do |student|
+    %thead
       %tr
-        %td= student[:id]
-        %td= student[:name]
-        %td= student[:email]
-        %td= student[:address][:street_number]
-        %td= student[:address][:city]
-        %td= student[:address][:zip_code]
-        %td= student[:address][:country]
+        %th ID
+        %th Name
+        %th Email
+        %th{colspan: 4} Address
+    %tbody
+      - @students_with_pagination.each do |student|
+        %tr
+          %td= student[:id]
+          %td= student[:name]
+          %td= student[:email]
+          %td= student[:address][:street_number]
+          %td= student[:address][:city]
+          %td= student[:address][:zip_code]
+          %td= student[:address][:country]
