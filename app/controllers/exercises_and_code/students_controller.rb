@@ -20,10 +20,44 @@ module ExercisesAndCode
       @students_with_pagination = Kaminari.paginate_array(students).page(params[:page].presence || 1).per(10)
     end
 
+    def new
+      @student = Student.new
+    end
+
+    def create
+      @student = Student.new(student_params)
+      if @student.save
+        flash[:success] = 'Right! Student has been registered'
+        redirect_to edit_exercises_and_code_student_path({id: @student.id, student: student_params})
+      else
+        flash.now[:error] = 'Please, correct the errors below'
+        render :new
+      end
+    end
+
+    def edit
+      @student = Student.new({id: params[:id]}.merge(student_params))
+    end
+
+    def update
+      @student = Student.new({id: params[:id]}.merge(student_params))
+      if @student.save
+        flash[:success] = 'Right! Student has been updated'
+        redirect_to edit_exercises_and_code_student_path({id: @student.id, student: student_params})
+      else
+        flash.now[:error] = 'Please, correct the errors below'
+        render :edit
+      end
+    end
+
     private
 
     def populate_students
       students(100)
+    end
+
+    def student_params
+      params.require(:student).permit(:name, :email, :street_number, :city, :zip_code, :country)
     end
   end
 end

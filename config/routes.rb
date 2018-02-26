@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
   namespace :exercises_and_code do
-    resources :students, only: :index
+    resources :students
   end
 
   root 'welcome#index'

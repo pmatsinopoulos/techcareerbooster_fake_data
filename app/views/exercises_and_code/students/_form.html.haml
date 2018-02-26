@@ -1,0 +1,8 @@
+= f.input :name, autofocus: true, required: true
+= f.input :email, required: true
+%fieldset
+  %legend Address
+  = f.input :street_number, required: true
+  = f.input :city, required: true
+  = f.input :zip_code, required: true
+  = f.input :country, required: true

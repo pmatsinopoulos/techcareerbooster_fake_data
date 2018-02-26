@@ -1,0 +1,7 @@
+%h1 Student Edit Form
+
+= simple_form_for @student, url: exercises_and_code_student_path(@student)  , html: {class: 'form-horizontal', method: :put} do |f|
+  = f.input :id, disabled: true, readonly: true
+  = render partial: 'exercises_and_code/students/form', locals: {f: f}
+  = f.submit 'Update Student', class: 'btn btn-primary btn-lg'
+
